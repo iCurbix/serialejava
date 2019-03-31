@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <tabs>
+    <Tab onSelectionChanged="#laduj" text="rzeczy">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="853.0">
+               <children>
+                  <TabPane fx:id="paneRzeczy" maxHeight="500.0" prefHeight="352.0" prefWidth="242.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab onSelectionChanged="#laduj" text="filmy">
+                        <content>
+                          <AnchorPane maxHeight="500.0" minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="278.0">
+                                 <children>
+                                    <TableView fx:id="tableFilm" layoutX="4.0" layoutY="14.0" onMouseClicked="#pokacos" prefHeight="305.0" prefWidth="237.0">
+                                      <columns>
+                                        <TableColumn fx:id="columnFilm" prefWidth="235.0" text="Filmy" />
+                                      </columns>
+                                    </TableView>
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab onSelectionChanged="#laduj" text="seriale">
+                        <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                <children>
+                                    <TableView fx:id="tableSerial" layoutX="4.0" layoutY="14.0" onMouseClicked="#pokacos" prefHeight="306.0" prefWidth="237.0">
+                                        <columns>
+                                            <TableColumn fx:id="columnSerial" prefWidth="235.0" text="Seriale" />
+                                        </columns>
+                                    </TableView>
+                                </children></AnchorPane>
+
+
+                        </content>
+                      </Tab>
+                      <Tab onSelectionChanged="#laduj" text="wydarzenia">
+                          <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                      <TableView fx:id="tableWydarzenie" layoutX="4.0" layoutY="14.0" onMouseClicked="#pokacos" prefHeight="306.0" prefWidth="237.0">
+                                          <columns>
+                                              <TableColumn fx:id="columnWydarzenie" prefWidth="235.0" text="Wydarzenia" />
+                                          </columns>
+                                      </TableView>
+                                  </children></AnchorPane>
+
+
+                          </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+
+                  <Button fx:id="buttonDodaj" layoutX="14.0" layoutY="408.0" mnemonicParsing="false" onAction="#dodaj" text="dodaj" />
+                  <Button fx:id="buttonZapisz" layoutX="85.0" layoutY="438.0" mnemonicParsing="false" onAction="#zapiszbiblioteke" text="zapisz" />
+                  <Button fx:id="buttonLaduj" layoutX="145.0" layoutY="438.0" mnemonicParsing="false" onAction="#ladujbiblioteke" text="ładuj" />
+                  <TextField fx:id="textSzukaj" layoutX="14.0" layoutY="372.0" onKeyReleased="#szukaj" />
+                  <Label layoutX="14.0" layoutY="352.0" text="Znajdź se coś" />
+
+                   <!--<ScrollPane layoutX="282.0" layoutY="14.0" prefHeight="454.0" prefWidth="314.0">-->
+                       <Label fx:id="labelGatunekFilm" layoutX="590.0" layoutY="110.0" />
+                        <Label fx:id="labelRok" layoutX="590.0" layoutY="125.0" />
+                       <Label fx:id="labelDlugosc0" layoutX="590.0" layoutY="140.0" text="czas:" visible="false" />
+                     <Label fx:id="labelDlugosc" layoutX="625.0" layoutY="140.0" />
+                      <Label fx:id="labelKraje" layoutX="590.0" layoutY="155.0" />
+                        <Label fx:id="labelOpis0" layoutX="590.0" layoutY="170.0" text="opis:" visible="false" />
+                         <Label fx:id="labelOpis" layoutX="590.0" layoutY="185.0" />
+                      <Label fx:id="labelCena0" layoutX="590.0" layoutY="25.0" text="Cena" visible="false">
+                         <font>
+                            <Font size="19.0" />
+                         </font></Label>
+                      <Label fx:id="labelCena" layoutX="590.0" layoutY="53.0">
+                         <font>
+                            <Font size="19.0" />
+                         </font>
+                      </Label>
+                      <Label fx:id="labelAktorzy" layoutX="771.0" layoutY="110.0" text="aktorzy:" visible="false" />
+                      <Label fx:id="labelAktor1" layoutX="771.0" layoutY="135.0" />
+                      <Label fx:id="labelAktor2" layoutX="771.0" layoutY="150.0" />
+                      <Label fx:id="labelAktor3" layoutX="771.0" layoutY="165.0" />
+                      <Label fx:id="labelAktor4" layoutX="771.0" layoutY="180.0" />
+                     <ImageView fx:id="image" fitHeight="188.0" fitWidth="273.0" layoutX="265.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                      <MediaView fx:id="videoFilm" fitHeight="200.0" fitWidth="300.0" layoutX="265.0" layoutY="252.0" onMouseClicked="#pauza" />
+                      <Label fx:id="labelZwiastunFilm" layoutX="265.0" layoutY="230.0" text="Zwiastun:" visible="false" />
+                  <LineChart fx:id="chart2" layoutX="565.0" layoutY="235.0" prefHeight="215.0" prefWidth="306.0" visible="false">
+                    <xAxis>
+                      <NumberAxis side="BOTTOM" fx:id="xAxis2" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="yAxis2" side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <Button layoutX="14.0" layoutY="438.0" mnemonicParsing="false" onAction="#usun" text="usuń" />
+                  <Button layoutX="90.0" layoutY="408.0" mnemonicParsing="false" onAction="#dodajumowa" text="dodaj umowę" />
+                   <!--</ScrollPane>-->
+
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab onSelectionChanged="#pauza" text="matrix">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="buttonStartStop" layoutX="30.0" layoutY="187.0" mnemonicParsing="false" onAction="#startstop" text="start" />
+                  <LineChart fx:id="chart" layoutX="90.0" layoutY="20.0">
+                    <xAxis>
+                      <NumberAxis side="BOTTOM" fx:id="xAxis" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="yAxis" side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
